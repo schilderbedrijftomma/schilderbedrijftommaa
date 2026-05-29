@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schildersbedrijf Tomma | Vakmanschap & Kwaliteit</title>
     <style>
-        /* Nowoczesny Reset i Czcionka */
+        /* Reset i Czcionka */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,11 +18,11 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: #2d3748;
-            background-color: #ffffff; /* Białe tło główne */
+            background-color: #ffffff; /* Dominująca biel */
             padding-top: 80px;
         }
 
-        /* PRZYKLEJONE MENU (NAVBAR) - Białe z zielonymi i pomarańczowymi akcentami */
+        /* NAWIGACJA (NAVBAR) */
         nav {
             position: fixed;
             top: 0;
@@ -43,11 +43,11 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #276749; /* Zielony */
+            color: #276749; /* Głęboka zieleń */
             text-decoration: none;
         }
         .logo span {
-            color: #dd6b20; /* Pomarańczowy */
+            color: #dd6b20; /* Wyrazisty pomarańcz */
         }
         .nav-links {
             display: flex;
@@ -62,10 +62,10 @@
             transition: color 0.2s;
         }
         .nav-links a:hover {
-            color: #276749; /* Zielony hover */
+            color: #276749;
         }
         .nav-btn {
-            background-color: #dd6b20; /* Pomarańczowy przycisk */
+            background-color: #dd6b20; /* Pomarańczowy przycisk akcji */
             color: #fff !important;
             padding: 8px 20px;
             border-radius: 50px;
@@ -76,12 +76,12 @@
             background-color: #c05621;
         }
 
-        /* HERO SECTION - Holenderski dom / willa w tle */
+        /* HERO SECTION - Zdjęcie holenderskiej willi w tle */
         header {
-            background: linear-gradient(135deg, rgba(39, 103, 73, 0.85) 0%, rgba(221, 107, 32, 0.2) 100%), 
-                        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(39, 103, 73, 0.8) 0%, rgba(221, 107, 32, 0.25) 100%), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             color: #ffffff;
-            padding: 160px 20px;
+            padding: 170px 20px;
             text-align: center;
         }
         header h1 {
@@ -89,18 +89,18 @@
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: -1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
         header p {
             font-size: 1.5rem;
             color: #ffffff;
             font-weight: 500;
             margin-bottom: 35px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
         .btn-main {
             display: inline-block;
-            background-color: #dd6b20; /* Pomarańczowy */
+            background-color: #dd6b20;
             color: #ffffff;
             padding: 14px 35px;
             text-decoration: none;
@@ -114,7 +114,7 @@
             transform: translateY(-2px);
         }
 
-        /* SEKCJE */
+        /* GŁÓWNY KONTENER I SEKCJE */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,7 +138,7 @@
             font-size: 1.15rem;
         }
 
-        /* O NAS & STATYSTYKI */
+        /* OVER ONS & STATYSTYKI */
         .about-card {
             background: #ffffff;
             padding: 40px;
@@ -161,18 +161,18 @@
             margin-top: 30px;
         }
         .stat-item {
-            background: #f0fff4; /* Jasnozielone tło */
+            background: #f0fff4; /* Delikatne zielone tło kart statystyk */
             padding: 20px;
             border-radius: 12px;
             border: 1px solid #c6f6d5;
         }
         .stat-item h4 {
             font-size: 2rem;
-            color: #276749; /* Zielony */
+            color: #276749;
             font-weight: 800;
         }
 
-        /* GRID SPECJALIZACJI */
+        /* SPECJALIZACJE (DIENSTEN) */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -188,7 +188,7 @@
         }
         .service-card:hover {
             transform: translateY(-5px);
-            border-color: #dd6b20; /* Pomarańczowa ramka przy najechaniu */
+            border-color: #dd6b20; /* Pomarańczowa ramka przy hoverze */
         }
         .service-card h3 {
             margin-bottom: 12px;
@@ -197,7 +197,7 @@
         }
         .warranty-tag {
             display: inline-block;
-            background: #feebc8; /* Jasnopomarańczowy */
+            background: #feebc8; /* Pomarańczowa etykieta */
             color: #c05621;
             font-size: 0.8rem;
             font-weight: 700;
@@ -206,9 +206,9 @@
             margin-top: 10px;
         }
 
-        /* PROCES PRACY KROK PO KROKU */
+        /* PROCES PRACY (WERKWIJZE) */
         .process-box {
-            background: #276749; /* Zielone tło sekcji kroków */
+            background: #276749; /* Zielone tło całego bloku */
             color: white;
             padding: 50px;
             border-radius: 24px;
@@ -233,11 +233,11 @@
         .step-num {
             font-size: 2rem;
             font-weight: 800;
-            color: #feebc8; /* Pomarańczowy numer */
+            color: #feebc8; /* Pomarańczowy wyróżnik kroku */
             margin-bottom: 10px;
         }
 
-        /* RECENTE PROJECTEN (GALERIA) */
+        /* PORTFOLIO (ONS WERK) */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -262,7 +262,7 @@
             color: #276749;
         }
 
-        /* ROZBUDOWANY KONTAKT Z FORMULARZEM */
+        /* KONTAKT I FORMULARZ */
         .contact-box {
             background: #ffffff;
             border-radius: 24px;
@@ -274,7 +274,7 @@
             border: 1px solid #edf2f7;
         }
         .contact-sidebar {
-            background: linear-gradient(135deg, #276749 0%, #1c4d35 100%); /* Zielona karta kontaktowa */
+            background: linear-gradient(135deg, #276749 0%, #1c4d35 100%); /* Zielony gradient */
             color: white;
             padding: 40px;
             border-radius: 16px;
@@ -291,7 +291,6 @@
         }
         .info-link:hover { color: #feebc8; }
         
-        /* Styl formularza */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -316,9 +315,10 @@
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             outline: none;
             border-color: #276749;
+            box-shadow: 0 0 0 3px rgba(39, 103, 73, 0.1);
         }
         .btn-submit {
-            background: #dd6b20; /* Pomarańczowy przycisk wysyłania */
+            background: #dd6b20;
             color: white;
             border: none;
             padding: 14px;
@@ -330,9 +330,174 @@
         }
         .btn-submit:hover { background: #c05621; }
 
-        /* STOPKA - Ciemnozielona */
+        /* STOPKA */
         footer {
             text-align: center;
             padding: 30px;
-            background-color: #1c4d35;
-            color: #a
+            background-color: #1c4d35; /* Ciemna zieleń */
+            color: #a0aec0;
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSYWNOŚĆ MOBILNA */
+        @media (max-width: 850px) {
+            body { padding-top: 130px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .contact-box { grid-template-columns: 1fr; padding: 20px; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Tomma<span>Schilders</span></a>
+            <ul class="nav-links">
+                <li><a href="#over-ons">Over Ons</a></li>
+                <li><a href="#diensten">Diensten</a></li>
+                <li><a href="#ons-werk">Ons Werk</a></li>
+                <li><a href="#contact" class="nav-btn">Offerte Aanvragen</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Schildersbedrijf Tomma</h1>
+        <p>Vakmanschap met 25 jaar ervaring</p>
+        <a href="#contact" class="btn-main">Vrijblijvende Offerte</a>
+    </header>
+
+    <div class="container">
+
+        <section id="over-ons">
+            <h2>Over Ons Bedrijf</h2>
+            <p class="section-subtitle">Betrouwbaarheid en pure kwaliteit in Berkel en Rodenrijs</p>
+            <div class="about-card">
+                <p>
+                    <strong>Schildersbedrijf Tomma</strong> is een ervaren en betrouwbaar schildersbedrijf gevestigd in Berkel en Rodenrijs. Met ruim 25 jaar ervaring verzorgen wij hoogwaardig schilder- en onderhoudswerk voor villa’s, eengezinswoningen, VvE’s en monumentale panden.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-item"><h4>25+</h4><p>Jaar Ervaring</p></div>
+                    <div class="stat-item"><h4>100%</h4><p>Tevredenheid</p></div>
+                    <div class="stat-item"><h4>Top Kwaliteit</h4><p>Gegarandeerd</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diensten">
+            <h2>Onze Specialisaties</h2>
+            <p class="section-subtitle">Waarmee kunnen wij u vakkundig van dienst zijn?</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏡 Buitenschilderwerk</h3>
+                    <p>Duurzame bescherming van uw gevels, ramen en kozijnen tegen alle Nederlandse weersinvloeden.</p>
+                    <span class="warranty-tag">Tot 10 jaar garantie mogelijk</span>
+                </div>
+                <div class="service-card">
+                    <h3>🎨 Binnenschilderwerk</h3>
+                    <p>Strak en nauwkeurig schilderwerk voor wanden, plafonds, binnenkozijnen en trappen.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📄 Behang- & Stucwerk</h3>
+                    <p>Professionele wandafwerking voor perfect egale en prachtig afgewerkte muren.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💎 Glaswerk</h3>
+                    <p>Levering en vakkundige plaatsing van diverse soorten moderne isolatie- en HR++ glas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🪵 Houtreparatie & Timmerwerk</h3>
+                    <p>Herstel van houtrot en vakkundige aanpassingen om uw houtwerk in topconditie te houden.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🚪 Ramen & Deuren</h3>
+                    <p>Grondig onderhoud, strak schilderwerk en het perfect afstellen van al uw hang- en sluitwerk.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="process-box">
+                <h3>Onze Werkwijze</h3>
+                <div class="steps-grid">
+                    <div class="step"><div class="step-num">1</div><h4>Aanvraag</h4><p>U neemt contact op en we bespreken uw wensen.</p></div>
+                    <div class="step"><div class="step-num">2</div><h4>Offerte</h4><p>U ontvangt een heldere, vrijblijvende prijsopgave.</p></div>
+                    <div class="step"><div class="step-num">3</div><h4>Uitvoering</h4><p>Wij werken netjes, vakkundig en strak op planning.</p></div>
+                    <div class="step"><div class="step-num">4</div><h4>Oplevering</h4><p>Gezamenlijke controle voor een 100% topresultaat.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ons-werk">
+            <h2>Ons Recente Werk</h2>
+            <p class="section-subtitle">Een greep uit onze gerealiseerde projecten</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="gallery-info">
+                        <h3>Buitenschilderwerk</h3>
+                        <p>Volledig onderhoud en lakwerk van een vrijstaande villa inclusief houtrotreparatie.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="gallery-info">
+                        <h3>Binnenschilderwerk</h3>
+                        <p>Strakke wandafwerking en sauswerk van plafonds in een moderne gezinswoning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact & Offerte</h2>
+            <p class="section-subtitle">Vraag direct een vrijblijvende prijsopgave aan</p>
+            <div class="contact-box">
+                <div class="contact-sidebar">
+                    <h3>Contactgegevens</h3>
+                    <p style="margin-bottom: 25px;">Heeft u vragen of wilt u een afspraak maken? Neem direct contact op. Wij staan voor u klaar.</p>
+                    <p><strong>📞 Telefoon:</strong><br><a href="tel:+31654967900" class="info-link">+31 654 967 900</a></p><br>
+                    <p><strong>✉️ E-mail:</strong><br><a href="mailto:tomma.info@gmail.com" class="info-link">tomma.info@gmail.com</a></p><br>
+                    <p><strong>📍 Adres:</strong><br>Verveenstraat 19,<br>2651EX Berkel en Rodenrijs</p>
+                </div>
+                
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label>Uw Naam *</label>
+                        <input type="text" name="name" required placeholder="Jan Jansen">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mailadres *</label>
+                        <input type="email" name="email" required placeholder="jan@example.nl">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefoonnummer *</label>
+                        <input type="tel" name="phone" required placeholder="06 12345678">
+                    </div>
+                    <div class="form-group">
+                        <label>Type Werkzaamheid *</label>
+                        <select name="service">
+                            <option value="Buitenschilderwerk">Buitenschilderwerk</option>
+                            <option value="Binnenschilderwerk">Binnenschilderwerk</option>
+                            <option value="Behang en Stucwerk">Behang- & Stucwerk</option>
+                            <option value="Houtreparatie">Houtreparatie / Onderhoud</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Uw Bericht *</label>
+                        <textarea name="message" rows="4" required placeholder="Beschrijf uw project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Aanvraag Verzenden</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Schildersbedrijf Tomma. Alle rechten voorbehouden.</p>
+    </footer>
+
+</body>
+</html>
