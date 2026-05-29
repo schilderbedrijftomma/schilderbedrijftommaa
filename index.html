@@ -3,49 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schildersbedrijf Tomma | Home</title>
+    <title>Schildersbedrijf Tomma | Vakmanschap & Kwaliteit</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #2d3748; background-color: #f7fafc; padding-top: 70px; }
-        nav { position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #1a202c; text-decoration: none; }
-        .logo span { color: #3182ce; }
-        .nav-links { display: flex; list-style: none; gap: 25px; }
-        .nav-links a { text-decoration: none; color: #4a5568; font-weight: 500; }
-        .nav-links a:hover, .nav-links a.active { color: #3182ce; }
-        header { background: linear-gradient(rgba(26,36,43,0.9), rgba(44,62,80,0.9)), url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; color: #fff; padding: 100px 20px; text-align: center; }
-        header h1 { font-size: 3rem; margin-bottom: 10px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .about-section { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); text-align: center; }
-        footer { text-align: center; padding: 20px; background: #1a202c; color: #718096; margin-top: 60px; }
+        /* Nowoczesny Reset i Czcionka */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth; /* Płynne przewijanie */
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            padding-top: 80px; /* Miejsce na przyklejone menu */
+        }
+
+        /* PRZYKLEJONE MENU (NAVBAR) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #3182ce;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #3182ce;
+        }
+        .nav-btn {
+            background-color: #3182ce;
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+        .nav-btn:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* HERO SECTION */
+        header {
+            background: linear-gradient(135deg, rgba(26, 36, 43, 0.9) 0%, rgba(44, 62, 80, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: #ffffff;
+            padding: 150px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        header p {
+            font-size: 1.5rem;
+            color: #3182ce;
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+        .btn-main {
+            display: inline-block;
+            background-color: #3182ce;
+            color: #ffffff;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(49, 130, 206, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-main:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        /* SEKCJE */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        section {
+            scroll-margin-top: 100px; /* Zabezpieczenie przed zasłanianiem przez menu */
+            margin-bottom: 80px;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 50px;
+            font-size: 1.15rem;
+        }
+
+        /* O NAS & STATYSTYKI */
+        .about-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            border: 1px solid #edf2f7;
+        }
+        .about-card p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-item {
+            background: #ebf8ff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .stat-item h4 {
+            font-size: 2rem;
+            color: #2b6cb0;
+            font-weight: 800;
+        }
+
+        /* GRID SPECJALIZACJI */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #3182ce;
+        }
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: #1a202c;
+            font-size: 1.35rem;
+        }
+        .warranty-tag {
+            display: inline-block;
+            background: #c6f6d5;
+            color: #22543d;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        /* PROCES PRACY KROK PO KROKU */
+        .process-box {
+            background: #1a202c;
+            color: white;
+            padding: 50px;
+            border-radius: 24px;
+        }
+        .process-box h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #3182ce;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .step-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3182ce;
+            margin-bottom: 10px;
+        }
+
+        /* GALERIA (ONS WERK) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+        }
+        .gallery-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-info {
+            padding: 20px;
+        }
+
+        /* ROZBUDOWANY KONTAKT Z FORMULARZEM */
+        .contact-box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf2f7;
+        }
+        .contact-sidebar {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+        }
+        .contact-sidebar h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #3182ce;
+        }
+        .info-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .info-link:hover { color: #3182ce; }
+        
+        /* Styl formularza */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .btn-submit {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover { background: #2b6cb0; }
+
+        /* STOPKA */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1a202c;
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        /* REPOSNYWNOŚĆ (EKRANY MOBILNE) */
+        @media (max-width: 850px) {
+            body { padding-top: 130px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .contact-box { grid-template-columns: 1fr; padding: 20px; }
+            header h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">Tomma<span>Schilders</span></a>
+            <a href="#" class="logo">Tomma<span>Schilders</span></a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projecten.html">Projecten</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#over-ons">Over Ons</a></li>
+                <li><a href="#diensten">Diensten</a></li>
+                <li><a href="#ons-werk">Ons Werk</a></li>
+                <li><a href="#contact" class="nav-btn">Offerte Aanvragen</a></li>
             </ul>
         </div>
     </nav>
 
     <header>
         <h1>Schildersbedrijf Tomma</h1>
-        <p>Vakmanschap met 25 jaar ervaring w Berkel en Rodenrijs</p>
+        <p>Vakmanschap met 25 jaar ervaring</p>
+        <a href="#contact" class="btn-main">Vrijblijvende Offerte</a>
     </header>
 
     <div class="container">
-        <section class="about-section">
-            <h2>Welkom bij Schildersbedrijf Tomma</h2>
-            <p style="margin-top: 20px; font-size: 1.1rem; color: #4a5568;">
-                Wij verzorgen hoogwaardig schilder- en onderhoudswerk voor villa’s, eengezinswoningen, VvE’s en monumentale panden. Klik op onze projectenpagina om ons werk te bekijken of neem direct contact met ons op voor een offerte.
-            </p>
+
+        <section id="over-ons">
+            <h2>Over Ons Bedrijf</h2>
+            <p class="section-subtitle">Betrouwbaarheid en pure kwaliteit in Berkel en Rodenrijs</p>
+            <div class="about-card">
+                <p>
+                    <strong>Schildersbedrijf Tomma</strong> is een ervaren en betrouwbaar schildersbedrijf gevestigd in Berkel en Rodenrijs. Met ruim 25 jaar ervaring verzorgen wij hoogwaardig schilder- en onderhoudswerk voor villa’s, eengezinswoningen, VvE’s en monumentale panden.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-item"><h4>25+</h4><p>Jaar Ervaring</p></div>
+                    <div class="stat-item"><h4>100%</h4><p>Tevredenheid</p></div>
+                    <div class="stat-item"><h4>Top Kwaliteit</h4><p>Gegarandeerd</p></div>
+                </div>
+            </div>
         </section>
+
+        <section id="diensten">
+            <h2>Onze Specialisaties</h2>
+            <p class="section-subtitle">Waarmee kunnen wij u vakkundig van dienst zijn?</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏡 Buitenschilderwerk</h3>
+                    <p>Duurzame bescherming van uw gevels, ramen en kozijnen tegen alle Nederlandse weersinvloeden.</p>
+                    <span class="warranty-tag">Tot 10 jaar garantie mogelijk</span>
+                </div>
+                <div class="service-card">
+                    <h3>🎨 Binnenschilderwerk</h3>
+                    <p>Strak en nauwkeurig schilderwerk voor wanden, plafonds, binnenkozijnen en trappen.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📄 Behang- & Stucwerk</h3>
+                    <p>Professionele wandafwerking voor perfect egale en prachtig afgewerkte muren.</p>
+                </div>
+                <div class="service-card">
+                    <h3>💎 Glaswerk</h3>
+                    <p>Levering en vakkundige plaatsing van diverse soorten moderne isolatie- en HR++ glas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🪵 Houtreparatie & Timmerwerk</h3>
+                    <p>Herstel van houtrot en vakkundige aanpassingen om uw houtwerk in topconditie te houden.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🚪 Ramen & Deuren</h3>
+                    <p>Grondig onderhoud, strak schilderwerk en het perfect afstellen van al uw hang- en sluitwerk.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="process-box">
+                <h3>Onze Werkwijze</h3>
+                <div class="steps-grid">
+                    <div class="step"><div class="step-num">1</div><h4>Aanvraag</h4><p>U neemt contact op en we bespreken uw wensen.</p></div>
+                    <div class="step"><div class="step-num">2</div><h4>Offerte</h4><p>U ontvangt een heldere, vrijblijvende prijsopgave.</p></div>
+                    <div class="step"><div class="step-num">3</div><h4>Uitvoering</h4><p>Wij werken netjes, vakkundig en strak op planning.</p></div>
+                    <div class="step"><div class="step-num">4</div><h4>Oplevering</h4><p>Gezamenlijke controle voor een 100% topresultaat.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ons-werk">
+            <h2>Ons Recente Werk</h2>
+            <p class="section-subtitle">Een greep uit onze gerealiseerde projecten</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="gallery-info">
+                        <h3>Buitenschilderwerk</h3>
+                        <p>Volledig onderhoud en lakwerk van een vrijstaande villa inclusief houtrotreparatie.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="gallery-info">
+                        <h3>Binnenschilderwerk</h3>
+                        <p>Strakke wandafwerking en sauswerk van plafonds in een moderne gezinswoning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact & Offerte</h2>
+            <p class="section-subtitle">Vraag direct een vrijblijvende prijsopgave aan</p>
+            <div class="contact-box">
+                <div class="contact-sidebar">
+                    <h3>Contactgegevens</h3>
+                    <p style="margin-bottom: 25px;">Heeft u vragen of wilt u een afspraak maken? Neem direct contact op. Wij staan voor u klaar.</p>
+                    <p><strong>📞 Telefoon:</strong><br><a href="tel:+31654967900" class="info-link">+31 654 967 900</a></p><br>
+                    <p><strong>✉️ E-mail:</strong><br><a href="mailto:tomma.info@gmail.com" class="info-link">tomma.info@gmail.com</a></p><br>
+                    <p><strong>📍 Adres:</strong><br>Verveenstraat 19,<br>2651EX Berkel en Rodenrijs</p>
+                </div>
+                
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label>Uw Naam *</label>
+                        <input type="text" name="name" required placeholder="Jan Jansen">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mailadres *</label>
+                        <input type="email" name="email" required placeholder="jan@example.nl">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefoonnummer *</label>
+                        <input type="tel" name="phone" required placeholder="06 12345678">
+                    </div>
+                    <div class="form-group">
+                        <label>Type Werkzaamheid *</label>
+                        <select name="service">
+                            <option value="Buitenschilderwerk">Buitenschilderwerk</option>
+                            <option value="Binnenschilderwerk">Binnenschilderwerk</option>
+                            <option value="Behang en Stucwerk">Behang- & Stucwerk</option>
+                            <option value="Houtreparatie">Houtreparatie / Onderhoud</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Uw Bericht *</label>
+                        <textarea name="message" rows="4" required placeholder="Beschrijf uw project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Aanvraag Verzenden</button>
+                </form>
+            </div>
+        </section>
+
     </div>
 
     <footer>
