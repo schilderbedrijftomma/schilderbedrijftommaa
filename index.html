@@ -13,7 +13,7 @@
             --card-bg: #ffffff;
             --card-border: #edf2f7;
             --sub-text: #718096;
-            --nav-bg: rgba(255, 255, 255, 0.85);
+            --nav-bg: rgba(255, 255, 255, 0.9);
             --body-bg: #ffffff;
         }
 
@@ -23,7 +23,7 @@
             --card-bg: #2d3748;
             --card-border: #4a5568;
             --sub-text: #a0aec0;
-            --nav-bg: rgba(26, 32, 44, 0.85);
+            --nav-bg: rgba(26, 32, 44, 0.9);
             --body-bg: #1a202c;
         }
 
@@ -42,18 +42,18 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--body-bg);
-            padding-top: 80px;
+            padding-top: 70px;
         }
 
-        /* NAWIGACJA Z EFEKTEM GLASSMORPHISM */
+        /* NAWIGACJA Z EFEKTEM GLASSMORPHISM & RESPONSIVE MENU */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background-color: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
         }
@@ -64,16 +64,44 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+            position: relative;
         }
         .logo {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #276749;
             text-decoration: none;
+            z-index: 1010;
         }
         .logo span {
             color: #dd6b20;
         }
+        
+        /* Menu ikona dla telefonów (Hamburger) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1010;
+            padding: 5px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Animacja hamburgera przy aktywnym menu */
+        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -85,28 +113,25 @@
             color: var(--text-color);
             font-weight: 600;
             position: relative;
+            padding: 5px 0;
         }
-        /* Animowana linia pod linkami w menu */
         .nav-links a::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -4px;
+            bottom: -2px;
             left: 0;
             background-color: #276749;
             transition: width 0.3s ease;
         }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .nav-links a:hover {
-            color: #276749;
-        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: #276749; }
+        
         .nav-btn {
             background-color: #dd6b20;
             color: #fff !important;
-            padding: 8px 20px;
+            padding: 10px 22px;
             border-radius: 50px;
             font-weight: 600 !important;
         }
@@ -116,7 +141,6 @@
             transform: scale(1.05);
         }
 
-        /* Przełącznik Dark Mode */
         .theme-toggle {
             background: none;
             border: none;
@@ -127,20 +151,18 @@
             align-items: center;
             justify-content: center;
         }
-        .theme-toggle:hover {
-            transform: rotate(15deg) scale(1.1);
-        }
+        .theme-toggle:hover { transform: rotate(15deg) scale(1.1); }
 
-        /* HERO SECTION */
+        /* HERO SECTION - DOPASOWANY DO MOBILE */
         header {
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%), 
                         url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             color: #ffffff;
-            padding: 240px 20px;
+            padding: 160px 20px;
             text-align: center;
         }
         header h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: -1px;
@@ -151,19 +173,18 @@
             line-height: 1.2;
         }
         header p {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             color: #ffffff;
             font-weight: 500;
             margin-bottom: 35px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
-        /* Animowany przycisk główny z przesuwającym się gradientem */
         .btn-main {
             display: inline-block;
             background: linear-gradient(270deg, #dd6b20, #f6ad55, #dd6b20);
             background-size: 200% 200%;
             color: #ffffff;
-            padding: 14px 35px;
+            padding: 15px 35px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -184,15 +205,15 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
         section {
-            scroll-margin-top: 100px;
-            margin-bottom: 80px;
+            scroll-margin-top: 90px;
+            margin-bottom: 60px;
         }
         section h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 10px;
             color: #276749;
@@ -200,29 +221,29 @@
         .section-subtitle {
             text-align: center;
             color: var(--sub-text);
-            margin-bottom: 50px;
-            font-size: 1.15rem;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
         /* OVER ONS */
         .about-card {
             background: var(--card-bg);
-            padding: 40px;
+            padding: 35px 25px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 40px auto;
             border: 1px solid var(--card-border);
         }
         .about-card p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-color);
             margin-bottom: 25px;
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
@@ -237,42 +258,38 @@
             border-color: #2f855a;
         }
         .stat-item h4 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #276749;
             font-weight: 800;
         }
-        [data-theme="dark"] .stat-item h4 {
-            color: #9ae6b4;
-        }
+        [data-theme="dark"] .stat-item h4 { color: #9ae6b4; }
 
-        /* DIENSTEN - ZAAWANSOWANY EFEKT HOVER 3D */
+        /* DIENSTEN - HOVER 3D REAKTYWNY */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
         }
         .service-card {
             background: var(--card-bg);
-            padding: 35px;
+            padding: 30px 25px;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
             border: 1px solid var(--card-border);
             position: relative;
         }
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: #dd6b20;
-            box-shadow: 0 15px 35px rgba(221, 107, 32, 0.1);
+            box-shadow: 0 12px 30px rgba(221, 107, 32, 0.1);
         }
         .service-card h3 {
             margin-bottom: 12px;
             color: #276749;
-            font-size: 1.35rem;
+            font-size: 1.3rem;
         }
-        [data-theme="dark"] .service-card h3 {
-            color: #68d391;
-        }
-        /* Pulsujący tag gwarancji */
+        [data-theme="dark"] .service-card h3 { color: #68d391; }
+        
         .warranty-tag {
             display: inline-block;
             background: #feebc8;
@@ -289,13 +306,13 @@
             100% { transform: scale(1.04); box-shadow: 0 0 8px rgba(221,107,32,0.2); }
         }
 
-        /* WERKWIJZE - PŁYWAJĄCE, PROMIENIUJĄCE TŁO */
+        /* WERKWIJZE - SHIMMER EFFECT */
         .process-box {
             background: linear-gradient(135deg, #276749, #1c4d35, #276749);
             background-size: 400% 400%;
             animation: bgGlow 10s ease infinite;
             color: white;
-            padding: 50px;
+            padding: 40px 25px;
             border-radius: 24px;
         }
         @keyframes bgGlow {
@@ -304,19 +321,19 @@
             100%{background-position:0% 50%}
         }
         .process-box h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 30px;
             text-align: center;
             color: #ffffff;
         }
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         .step {
             background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             text-align: center;
             backdrop-filter: blur(5px);
@@ -325,30 +342,22 @@
             background: rgba(255, 255, 255, 0.15);
             transform: scale(1.03);
         }
-        .step h4 {
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        .step p {
-            color: #e2e8f0;
-        }
+        .step h4 { color: #ffffff; margin-bottom: 5px; }
+        .step p { color: #e2e8f0; font-size: 0.95rem; }
         .step-num {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #feebc8;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: inline-block;
-            transition: transform 0.3s ease;
         }
-        .step:hover .step-num {
-            transform: rotate(360deg) scale(1.1);
-        }
+        .step:hover .step-num { transform: rotate(360deg) scale(1.1); }
 
-        /* ONS WERK / GALERIA Z EFEKTEM NAYEŻDŻANIA */
+        /* ONS WERK / GALERIA */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         .gallery-item {
             background: var(--card-bg);
@@ -359,29 +368,23 @@
             cursor: pointer;
         }
         .gallery-img {
-            height: 320px;
+            height: 280px;
             background-size: cover;
             background-position: center;
             filter: brightness(0.95);
             transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.3s ease;
         }
         .gallery-item:hover .gallery-img {
-            transform: scale(1.06);
+            transform: scale(1.05);
             filter: brightness(1.05);
         }
         .gallery-info {
             padding: 20px;
             background: var(--card-bg);
-            position: relative;
-            z-index: 5;
         }
-        .gallery-info h3 {
-            color: #276749;
-            margin-bottom: 8px;
-        }
-        [data-theme="dark"] .gallery-info h3 {
-            color: #68d391;
-        }
+        .gallery-info h3 { color: #276749; margin-bottom: 8px; font-size: 1.25rem; }
+        [data-theme="dark"] .gallery-info h3 { color: #68d391; }
+        .gallery-info p { font-size: 0.95rem; }
 
         /* LIGHTBOX */
         .lightbox {
@@ -392,57 +395,37 @@
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center; align-items: center;
             opacity: 0; transition: opacity 0.3s ease;
+            padding: 10px;
         }
         .lightbox.active { display: flex; opacity: 1; }
-        .lightbox-img { max-width: 90%; max-height: 85%; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); transform: scale(0.95); transition: transform 0.3s ease; }
+        .lightbox-img { max-width: 100%; max-height: 80%; border-radius: 8px; transform: scale(0.95); }
         .lightbox.active .lightbox-img { transform: scale(1); }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 3rem; font-weight: bold; cursor: pointer; }
+        .lightbox-close { position: absolute; top: 15px; right: 25px; color: #fff; font-size: 2.5rem; font-weight: bold; cursor: pointer; }
 
         /* CONTACT */
         .contact-box {
             background: var(--card-bg);
             border-radius: 24px;
-            padding: 40px;
+            padding: 30px;
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
+            gap: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
             border: 1px solid var(--card-border);
         }
         .contact-sidebar {
             background: linear-gradient(135deg, #276749 0%, #1c4d35 100%);
             color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 16px;
         }
-        .contact-sidebar h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #feebc8;
-        }
-        .info-link {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-        }
+        .contact-sidebar h3 { font-size: 1.6rem; margin-bottom: 20px; color: #feebc8; }
+        .info-link { color: #fff; text-decoration: none; font-weight: 600; display: inline-block; }
         .info-link:hover { color: #feebc8; transform: translateX(3px); }
          
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .form-group label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-color);
-        }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 0.9rem; font-weight: 600; color: var(--text-color); }
         .form-group input, .form-group textarea, .form-group select {
             padding: 12px;
             border: 1px solid #cbd5e0;
@@ -450,6 +433,7 @@
             font-size: 1rem;
             background-color: var(--bg-color);
             color: var(--text-color);
+            width: 100%;
         }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             outline: none;
@@ -465,6 +449,7 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
+            width: 100%;
         }
         .btn-submit:hover { 
             background: #c05621; 
@@ -472,100 +457,144 @@
             box-shadow: 0 4px 12px rgba(221,107,32,0.3);
         }
 
-        /* PŁYWAJĄCY PRZYCISK TELEFONU */
+        /* PŁYWAJĄCY PRZYCISK TELEFONU - ZOPTYMALIZOWANY POD KCIUK */
         .floating-call-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
             background-color: #dd6b20;
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             box-shadow: 0 4px 15px rgba(221, 107, 32, 0.5);
             cursor: pointer;
             z-index: 999;
             animation: pulse 2s infinite;
+            -webkit-tap-highlight-color: transparent;
         }
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(221, 107, 32, 0.7); }
-            70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(221, 107, 32, 0); }
+            70% { transform: scale(1.08); box-shadow: 0 0 0 12px rgba(221, 107, 32, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(221, 107, 32, 0); }
         }
 
-        /* OKNO WYSKAKUJĄCE (MODAL Z ANIMACJĄ POPOUT) */
+        /* MODAL POP-OUT */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6);
-            z-index: 1001;
+            z-index: 1051;
             display: none;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            padding: 15px;
         }
         .modal-overlay.active { display: flex; opacity: 1; }
         
         .quick-modal {
             background: var(--card-bg);
-            padding: 40px;
+            padding: 35px 25px;
             border-radius: 20px;
-            max-width: 450px;
-            width: 90%;
+            max-width: 420px;
+            width: 100%;
             text-align: center;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             border: 1px solid var(--card-border);
-            
-            /* Efekt sprężystego wpadania okienka */
-            transform: translateY(-50px) scale(0.9);
+            transform: translateY(-40px) scale(0.9);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .modal-overlay.active .quick-modal {
-            transform: translateY(0) scale(1);
-        }
-        
-        .quick-modal h3 { color: #276749; font-size: 1.6rem; margin-bottom: 15px; }
+        .modal-overlay.active .quick-modal { transform: translateY(0) scale(1); }
+        .quick-modal h3 { color: #276749; font-size: 1.5rem; margin-bottom: 15px; }
         [data-theme="dark"] .quick-modal h3 { color: #68d391; }
-        .quick-modal p { margin-bottom: 25px; color: var(--text-color); }
+        .quick-modal p { margin-bottom: 25px; color: var(--text-color); font-size: 1rem; }
         
         .modal-call-btn {
             display: inline-block;
             background: #dd6b20;
             color: white;
-            padding: 12px 30px;
+            padding: 14px 30px;
             border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
+            width: 100%;
         }
-        .modal-call-btn:hover {
-            background: #c05621;
-            transform: scale(1.05);
-        }
-        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--sub-text); transition: color 0.2s; }
-        .modal-close:hover { color: #dd6b20; }
+        .modal-call-btn:hover { background: #c05621; transform: scale(1.03); }
+        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.6rem; cursor: pointer; color: var(--sub-text); }
 
         /* STOPKA */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 30px 20px;
             background-color: #1c4d35;
             color: #a0aec0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        /* RESPONSYWNOŚĆ */
-        @media (max-width: 850px) {
-            body { padding-top: 130px; }
-            .nav-container { flex-direction: column; gap: 15px; text-align: center; }
-            .contact-box { grid-template-columns: 1fr; padding: 20px; }
-            header h1 { font-size: 2.2rem; }
+        /* LINKI DO RESPONSYWNOŚCI (MOBILE & TABLET) */
+        @media (max-width: 900px) {
+            body { padding-top: 60px; }
+            .menu-toggle { display: flex; }
+            
+            /* Przekształcenie menu nawigacji w wysuwany panel mobilny */
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                border-top: 1px solid var(--card-border);
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+                display: none;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            .nav-links.active {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                width: 100%;
+                border-bottom: 1px solid var(--card-border);
+            }
+            .nav-links a::after { display: none; }
+            .nav-btn {
+                border-radius: 0;
+                background-color: #dd6b20;
+                padding: 15px 20px;
+            }
+            .theme-toggle {
+                padding: 15px;
+                width: 100%;
+                justify-content: center;
+                border-bottom: 1px solid var(--card-border);
+            }
+
+            /* Dostosowanie siatki formularza i sekcji */
+            .contact-box { grid-template-columns: 1fr; padding: 20px; gap: 25px; }
+            header { padding: 120px 20px; }
+            header h1 { font-size: 2.1rem; }
+            header p { font-size: 1.15rem; }
+            section h2 { font-size: 1.9rem; }
         }
     </style>
 </head>
@@ -574,13 +603,20 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">Schildersbedrijf <span>Berkel en Rodenrijs</span></a>
-            <ul class="nav-links">
-                <li><a href="#over-ons">Over Ons</a></li>
-                <li><a href="#diensten">Diensten</a></li>
-                <li><a href="#werkwijze">Werkwijze</a></li>
-                <li><a href="#ons-werk">Ons Werk</a></li>
+            
+            <button class="menu-toggle" id="menuToggleBtn" aria-label="Menu openen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinksMenu">
+                <li><a href="#over-ons" onclick="closeMobileMenu()">Over Ons</a></li>
+                <li><a href="#diensten" onclick="closeMobileMenu()">Diensten</a></li>
+                <li><a href="#werkwijze" onclick="closeMobileMenu()">Werkwijze</a></li>
+                <li><a href="#ons-werk" onclick="closeMobileMenu()">Ons Werk</a></li>
                 <li><button class="theme-toggle" id="themeToggle" title="Verander thema">🌙</button></li>
-                <li><a href="#contact" class="nav-btn">Offerte Aanvragen</a></li>
+                <li><a href="#contact" class="nav-btn" onclick="closeMobileMenu()">Offerte Aanvragen</a></li>
             </ul>
         </div>
     </nav>
@@ -619,7 +655,7 @@
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <h3>🎨 Binnenschilderwerk</h3>
-                    <p>Strak en nauwkeurig schilderwerk voor wanden, plafonds, binnenkozijnen i trappen.</p>
+                    <p>Strak en nauwkeurig schilderwerk voor wanden, plafonds, binnenkozijnen en trappen.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <h3>📄 Behang- & Stucwerk</h3>
@@ -657,7 +693,7 @@
             <p class="section-subtitle">Een greep uit onze gerealiseerde projecten (Klik op een foto voor grotere weergave)</p>
             <div class="gallery-grid">
                 
-                <div class="gallery-item" data-aos="fade-right" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80')">
+                <div class="gallery-item" data-aos="fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80')">
                     <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')"></div>
                     <div class="gallery-info">
                         <h3>Buitenschilderwerk</h3>
@@ -665,7 +701,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-aos="fade-left" onclick="openLightbox('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80')">
+                <div class="gallery-item" data-aos="fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80')">
                     <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80')"></div>
                     <div class="gallery-info">
                         <h3>Binnenschilderwerk</h3>
@@ -743,8 +779,35 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Inicjalizacja animacji AOS
-        AOS.init({ duration: 800, once: true });
+        // Inicjalizacja animacji AOS (wyłączona na najmniejszych ekranach dla lepszej wydajności)
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            disable: window.innerWidth < 480 
+        });
+
+        // Obsługa menu mobilnego (Hamburger)
+        const menuToggleBtn = document.getElementById('menuToggleBtn');
+        const navLinksMenu = document.getElementById('navLinksMenu');
+
+        menuToggleBtn.addEventListener('click', () => {
+            menuToggleBtn.classList.toggle('open');
+            if (navLinksMenu.style.display === 'flex') {
+                navLinksMenu.classList.remove('active');
+                setTimeout(() => { navLinksMenu.style.display = 'none'; }, 300);
+            } else {
+                navLinksMenu.style.display = 'flex';
+                setTimeout(() => { navLinksMenu.classList.add('active'); }, 10);
+            }
+        });
+
+        function closeMobileMenu() {
+            if (window.innerWidth <= 900) {
+                menuToggleBtn.classList.remove('open');
+                navLinksMenu.classList.remove('active');
+                setTimeout(() => { navLinksMenu.style.display = 'none'; }, 300);
+            }
+        }
 
         // Obsługa przełączania motywu Dark Mode
         const themeToggle = document.getElementById('themeToggle');
@@ -757,6 +820,7 @@
                 document.body.setAttribute('data-theme', 'dark');
                 themeToggle.textContent = '☀️';
             }
+            closeMobileMenu();
         });
 
         // Obsługa interaktywnej galerii Lightbox
