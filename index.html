@@ -6,7 +6,7 @@
     <title>Klussenbedrijf Tomma | Vakmanschap & Kwaliteit Berkel en Rodenrijs</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        /* Zmienne CSS z bogatszą paletą dla efektów głębi */
+        /* Zmienne CSS */
         :root {
             --bg-color: #f7fafc;
             --text-color: #2d3748;
@@ -19,6 +19,7 @@
             --accent-orange: #dd6b20;
             --shadow-color: rgba(0, 0, 0, 0.05);
             --input-bg: #ffffff;
+            --nav-link-hover: #1a202c;
         }
 
         [data-theme="dark"] {
@@ -33,6 +34,7 @@
             --accent-orange: #ed8936;
             --shadow-color: rgba(0, 0, 0, 0.3);
             --input-bg: #1a202c;
+            --nav-link-hover: #ffffff;
         }
 
         /* Reset i Płynne Przejścia */
@@ -50,12 +52,159 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--body-bg);
-            padding-top: 75px;
+            padding-top: 85px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* DYNAMICZNE ELEMENTY W TLE STRONY */
+        /* --- NOWA, LUKSUSOWA NAWIGACJA GÓRNA --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px var(--shadow-color);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+            height: 85px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-container {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+        
+        /* Elegancki blok LOGO z podnapisem SEO */
+        .logo-block {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        .logo-main {
+            font-size: 1.45rem;
+            font-weight: 900;
+            color: var(--accent-green);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .logo-main span { color: var(--accent-orange); }
+        .logo-sub {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--sub-text);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            opacity: 0.9;
+        }
+
+        /* Zakładki menu */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+        .nav-links a.menu-item {
+            text-decoration: none;
+            color: var(--sub-text);
+            font-weight: 700;
+            font-size: 0.98rem;
+            position: relative;
+            padding: 8px 0;
+        }
+        .nav-links a.menu-item:hover {
+            color: var(--nav-link-hover);
+        }
+        /* Nowoczesny pasek podświetlenia pod zakładką */
+        .nav-links a.menu-item::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 3px; bottom: 0; left: 0;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-orange));
+            border-radius: 4px;
+            transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .nav-links a.menu-item:hover::after { width: 100%; }
+        
+        /* Ekskluzywny przycisk Księżyca (Theme Toggle) */
+        .theme-toggle-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-color);
+            border: 1px solid var(--card-border);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.15rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        .theme-toggle:hover { 
+            transform: scale(1.1) rotate(15deg);
+            border-color: var(--accent-orange);
+            box-shadow: 0 4px 15px rgba(221, 107, 32, 0.2);
+        }
+
+        /* Nowy, ulepszony przycisk oferty (CTA) */
+        .nav-btn {
+            background: linear-gradient(135deg, #dd6b20 0%, #c05621 100%);
+            color: #ffffff !important;
+            padding: 13px 28px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 18px rgba(221, 107, 32, 0.3);
+        }
+        .nav-btn span { transition: transform 0.3s ease; }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(221, 107, 32, 0.45);
+        }
+        /* Efekt wysuwającej się strzałki przy najechaniu na ofertę */
+        .nav-btn:hover span {
+            transform: translateX(4px);
+        }
+
+        /* Mobilny przycisk menu (Hamburger) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1010;
+            padding: 5px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 4px;
+        }
+        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scale(0); }
+        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+
+        /* TŁO ANIMOWANE W TLE STRONY */
         body::before, body::after {
             content: "";
             position: absolute;
@@ -75,107 +224,12 @@
             100% { transform: translateY(50px) scale(1.2) rotate(45deg); }
         }
 
-        /* NAWIGACJA PREMIUM (GLASSMORPHISM) */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background-color: var(--nav-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 4px 30px var(--shadow-color);
-            border-bottom: 1px solid var(--card-border);
-            z-index: 1000;
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--accent-green);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-        .logo span { color: var(--accent-orange); }
-        
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            z-index: 1010;
-        }
-        .menu-toggle span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background-color: var(--text-color);
-            border-radius: 4px;
-        }
-        .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-        .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scale(0); }
-        .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 700;
-            font-size: 0.95rem;
-            position: relative;
-            padding: 5px 0;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 3px; bottom: -2px; left: 0;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-orange));
-            border-radius: 2px;
-            transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .nav-links a:hover::after { width: 100%; }
-        
-        .nav-btn {
-            background: linear-gradient(135deg, #dd6b20 0%, #c05621 100%);
-            color: #fff !important;
-            padding: 12px 26px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(221, 107, 32, 0.3);
-        }
-        .nav-btn::after { display: none !important; }
-        .nav-btn:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 20px rgba(221, 107, 32, 0.5);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.3rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-        .theme-toggle:hover { transform: rotate(20deg) scale(1.15); }
-
         /* HERO */
         header {
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(18, 22, 32, 0.75) 100%), 
                         url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             color: #ffffff;
-            padding: 220px 20px;
+            padding: 200px 20px 180px 20px;
             text-align: center;
             position: relative;
             clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
@@ -189,14 +243,12 @@
             max-width: 950px;
             margin-left: auto; margin-right: auto;
             line-height: 1.15;
-            animation: fadeInUp 0.8s ease;
         }
         header p {
             font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: 40px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease;
         }
         
         .btn-main {
@@ -225,7 +277,7 @@
 
         /* GŁÓWNY KONTENER SEKCJI */
         .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-        section { scroll-margin-top: 100px; margin-bottom: 120px; }
+        section { scroll-margin-top: 120px; margin-bottom: 120px; }
         section h2 {
             text-align: center;
             font-size: 2.8rem;
@@ -393,7 +445,7 @@
         .lightbox.active .lightbox-img { transform: scale(1); }
         .lightbox-close { position: absolute; top: 25px; right: 35px; color: #fff; font-size: 3.5rem; font-weight: 300; cursor: pointer; }
 
-        /* --- NOWA, ULEPSZONA, TRADYCYJNA SEKCJA OFERTOWA PREMIUM --- */
+        /* OFFERTE FORMULIER */
         .contact-box {
             background: var(--card-bg);
             border-radius: 28px;
@@ -430,7 +482,6 @@
         }
         .sidebar-badge { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; }
 
-        /* Pasek Zaufania nad Formularzem */
         .form-trust-bar {
             display: flex;
             justify-content: space-around;
@@ -445,7 +496,6 @@
         }
         .form-trust-bar span { display: flex; align-items: center; gap: 6px; }
 
-        /* Siatka Czystego Formularza */
         .contact-form { display: flex; flex-direction: column; gap: 20px; }
         .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
         
@@ -535,26 +585,27 @@
         /* FOOTER */
         footer { text-align: center; padding: 40px 20px; background-color: #0e271b; color: #a0aec0; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
-        /* RESPONSIVE WEB DESIGN (RWD) */
-        @media (max-width: 950px) {
-            body { padding-top: 65px; }
+        /* RESPONSIVE DESIGN (RWD) */
+        @media (max-width: 990px) {
+            body { padding-top: 75px; }
+            nav { height: 75px; }
             .menu-toggle { display: flex; }
             
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
-                background-color: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+                background-color: var(--card-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
                 border-top: 1px solid var(--card-border); flex-direction: column; gap: 0;
-                padding: 15px 0; box-shadow: 0 15px 30px var(--shadow-color);
+                padding: 10px 0; box-shadow: 0 15px 35px var(--shadow-color);
                 display: none; opacity: 0; transform: translateY(-15px);
-                transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+                transition: opacity 0.35s ease, transform 0.35s ease;
             }
             .nav-links.active { display: flex; opacity: 1; transform: translateY(0); }
             .nav-links li { width: 100%; text-align: center; }
-            .nav-links a { display: block; padding: 16px 20px; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.03); }
-            .nav-links a::after { display: none; }
+            .nav-links a.menu-item { display: block; padding: 16px 20px; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.03); }
+            .nav-links a.menu-item::after { display: none; }
             
-            .nav-btn { border-radius: 0; background: var(--accent-orange); padding: 18px 20px; box-shadow: none; }
-            .theme-toggle { padding: 16px; width: 100%; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.03); }
+            .nav-btn { border-radius: 0; background: var(--accent-orange); padding: 18px 20px; width: 100%; justify-content: center; box-shadow: none; }
+            .theme-toggle-wrapper { padding: 15px; width: 100%; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.03); }
 
             .contact-box { grid-template-columns: 1fr; padding: 30px 20px; gap: 35px; }
             .form-grid-2 { grid-template-columns: 1fr; gap: 15px; }
@@ -568,7 +619,7 @@
             .gallery-overlay { display: none !important; }
         }
         
-        @media (min-width: 951px) {
+        @media (min-width: 991px) {
             .gallery-static-info { display: none; }
         }
     </style>
@@ -577,20 +628,23 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Klussenbedrijf <span>Tomma</span></a>
+            <a href="#" class="logo-block">
+                <span class="logo-main">Klussenbedrijf <span>Tomma</span></span>
+                <span class="logo-sub">Schilderbedrijf Berkel Rodenrijs</span>
+            </a>
             
             <button class="menu-toggle" id="menuToggleBtn" aria-label="Menu openen">
                 <span></span><span></span><span></span>
             </button>
 
             <ul class="nav-links" id="navLinksMenu">
-                <li><a href="#over-ons" onclick="closeMobileMenu()">Over Ons</a></li>
-                <li><a href="#diensten" onclick="closeMobileMenu()">Diensten</a></li>
-                <li><a href="#werkwijze" onclick="closeMobileMenu()">Werkwijze</a></li>
-                <li><a href="#ons-werk" onclick="closeMobileMenu()">Ons Werk</a></li>
-                <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
-                <li><button class="theme-toggle" id="themeToggle" title="Verander thema">🌙</button></li>
-                <li><a href="#contact" class="nav-btn" onclick="closeMobileMenu()">Offerte Aanvragen</a></li>
+                <li><a href="#over-ons" class="menu-item" onclick="closeMobileMenu()">Over Ons</a></li>
+                <li><a href="#diensten" class="menu-item" onclick="closeMobileMenu()">Diensten</a></li>
+                <li><a href="#werkwijze" class="menu-item" onclick="closeMobileMenu()">Werkwijze</a></li>
+                <li><a href="#ons-werk" class="menu-item" onclick="closeMobileMenu()">Ons Werk</a></li>
+                <li><a href="#reviews" class="menu-item" onclick="closeMobileMenu()">Reviews</a></li>
+                <li class="theme-toggle-wrapper"><button class="theme-toggle" id="themeToggle" title="Verander thema">🌙</button></li>
+                <li><a href="#contact" class="nav-btn" onclick="closeMobileMenu()">Offerte Aanvragen <span>→</span></a></li>
             </ul>
         </div>
     </nav>
@@ -603,7 +657,7 @@
 
     <div class="container">
 
-        <section id="over-ons" data-aos="fade-up">
+        <section id="over-ons">
             <h2>Over Ons Bedrijf</h2>
             <p class="section-subtitle">Betrouwbaarheid en pure kwaliteit in Berkel en Rodenrijs</p>
             <div class="about-card">
@@ -624,7 +678,7 @@
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="50">
                     <h3>🏡 Buitenschilderwerk</h3>
-                    <p>Duurzame bescherming van uw gevels, ramen i kozijnen tegen alle Nederlandse weersinvloeden.</p>
+                    <p>Duurzame bescherming van uw gevels, ramen en kozijnen tegen alle Nederlandse weersinvloeden.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>🎨 Binnenschilderwerk</h3>
@@ -665,7 +719,6 @@
             <h2>Ons Recente Werk</h2>
             <p class="section-subtitle">Een greep uit onze gerealiseerde projecten (Klik op een foto voor grotere weergave)</p>
             <div class="gallery-grid">
-                
                 <div class="gallery-item" data-aos="fade-up" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80')">
                     <div class="gallery-img-container">
                         <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')"></div>
@@ -693,7 +746,6 @@
                         <p>Nauwkeurige wand- en plafondafwerking.</p>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -703,9 +755,8 @@
             <div class="google-reviews-box">
                 <h3>Bekijk Klussenbedrijf Tomma op Google</h3>
                 <div class="google-stars">★★★★★</div>
-                <p>We streven altijd naar de hoogste kwaliteit en 100% tevredenheid. Benieuwd naar de ervaringen van anderen, of wilt u zelf een beoordeling achterlaten na ons werk? Klik op de onderstaande knop.</p>
-                
-                <a href="https://www.google.com/search?cs=1&hl=en-NL&sxsrf=ANbL-n4GbfRRF-OrVJXC6JN1VhuabSwikw:1780154920912&q=Klussenbedrijf+tomma+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDAzNLMwNTWwNDQzBzINjIzMNjAyvmKU8c4pLS5OzUtKTSnKzEpTKMnPzU1UCEoty0wtL17EilcaALSsR4hZAAAA&rldimm=10616855091676160226&tbm=lcl&dpr=1.5#lkt=LocalPoiReviews" target="_blank" class="btn-google-review">
+                <p>We streven altijd naar de hoogste kwaliteit en 100% tevredenheid. Benieuwd naar de ervaringen van anderen?</p>
+                <a href="https://www.google.com/search?cs=1&hl=en-NL&q=Klussenbedrijf+tomma+Reviews" target="_blank" class="btn-google-review">
                     <svg class="google-btn-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v3.92h6.61c-.29 1.53-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.65-5.17 3.65-8.58z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.74-2.11-6.68-4.96H1.21v3.15C3.18 21.88 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.32 14.24c-.24-.72-.38-1.5-.38-2.3a7.83 7.83 0 0 1 .38-2.3V6.49H1.21A11.94 11.94 0 0 0 0 12c0 1.97.48 3.83 1.21 5.51l4.11-3.27z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.18 2.12 1.21 5.51l4.11 3.27c.94-2.85 3.57-4.96 6.68-4.96z"/></svg>
                     <span>Bekijk Google Reviews</span>
                 </a>
@@ -721,11 +772,10 @@
             <h2>Offerte Aanvragen</h2>
             <p class="section-subtitle">Deel uw plannen en ontvang snel een vrijblijvende prijsopgave</p>
             <div class="contact-box">
-                
                 <div class="contact-sidebar">
                     <div>
                         <h3>Contactgegevens</h3>
-                        <p style="margin-bottom: 25px;">Heeft u liever direct persoonlijk contact? Bel of mail ons gerust. Wij reageren altijd snel.</p>
+                        <p style="margin-bottom: 25px;">Heeft u liever direct persoonlijk contact? Bel of mail ons gerust.</p>
                         <p style="margin-bottom: 12px;"><strong>📞 Telefoon:</strong><br><a href="tel:+31654967900" class="info-link">+31 654 967 900</a></p>
                         <p style="margin-bottom: 12px;"><strong>✉️ E-mail:</strong><br><a href="mailto:tomma.info@gmail.com" class="info-link">tomma.info@gmail.com</a></p>
                         <p><strong>📍 Adres:</strong><br>Verveenstraat 19, 2651EX Berkel en Rodenrijs</p>
@@ -754,7 +804,6 @@
                                 <input type="tel" name="phone" required placeholder="06 12345678">
                             </div>
                         </div>
-
                         <div class="form-grid-2">
                             <div class="form-group">
                                 <label>E-mailadres *</label>
@@ -765,7 +814,6 @@
                                 <input type="text" name="location" required placeholder="2651 EX, Berkel">
                             </div>
                         </div>
-
                         <div class="form-grid-2">
                             <div class="form-group">
                                 <label>Type Werkzaamheid *</label>
@@ -786,18 +834,15 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label>Beschrijf uw project *</label>
-                            <textarea name="message" rows="5" required placeholder="Vertel ons meer over uw wensen, afmetingen of specifieke details van de klus..."></textarea>
+                            <textarea name="message" rows="5" required placeholder="Vertel ons meer over uw wensen..."></textarea>
                         </div>
-
                         <button type="submit" class="btn-submit-premium">
                             <span>Verzend Aanvraag</span> 🚀
                         </button>
                     </form>
                 </div>
-
             </div>
         </section>
 
@@ -809,7 +854,7 @@
         <div class="quick-modal">
             <span class="modal-close" onclick="closeModal(event, true)">&times;</span>
             <h3>Snel een offerte?</h3>
-            <p>Wilt u direct een vakman spreken en uw wensen bespreken? Bel ons nu op voor een snelle prijsindicatie!</p>
+            <p>Wilt u direct een vakman spreken? Bel ons nu op!</p>
             <a href="tel:+31654967900" class="modal-call-btn">📞 Bel +31 654 967 900</a>
         </div>
     </div>
@@ -820,10 +865,8 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Inicjalizacja biblioteki AOS
         AOS.init({ duration: 900, once: true, disable: window.innerWidth < 500 });
 
-        // Menu mobilne (Hamburger)
         const menuToggleBtn = document.getElementById('menuToggleBtn');
         const navLinksMenu = document.getElementById('navLinksMenu');
 
@@ -839,14 +882,13 @@
         });
 
         function closeMobileMenu() {
-            if (window.innerWidth <= 950) {
+            if (window.innerWidth <= 990) {
                 menuToggleBtn.classList.remove('open');
                 navLinksMenu.classList.remove('active');
                 setTimeout(() => { navLinksMenu.style.display = 'none'; }, 350);
             }
         }
 
-        // Dark Mode
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.body.getAttribute('data-theme');
@@ -860,7 +902,6 @@
             closeMobileMenu();
         });
 
-        // Lightbox dla Galerii
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
         function openLightbox(imgUrl) {
@@ -869,14 +910,12 @@
         }
         function closeLightbox() { lightbox.classList.remove('active'); }
 
-        // Obsługa Okna Modalnego (Szybki kontakt)
         const contactModal = document.getElementById('contactModal');
         function openModal() { contactModal.classList.add('active'); }
         function closeModal(e, force = false) {
             if (e.target === contactModal || force) { contactModal.classList.remove('active'); }
         }
 
-        // Animowany licznik w sekcji "Over Ons"
         const counters = document.querySelectorAll('.counter');
         const speed = 70;
         const startCounters = () => {
