@@ -122,11 +122,11 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
         section {
             scroll-margin-top: 100px;
-            margin-bottom: 80px;
+            margin-bottom: 70px;
         }
         section h2 {
             text-align: center;
@@ -138,7 +138,7 @@
         .section-subtitle {
             text-align: center;
             color: #718096;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-size: 1.15rem;
         }
 
@@ -150,7 +150,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             text-align: center;
             max-width: 900px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto;
             border: 1px solid #edf2f7;
         }
         .about-card p {
@@ -211,118 +211,45 @@
             margin-top: 10px;
         }
 
-        /* NOWOCZESNA SEKCJA WERKWIJZE (OŚ CZASU) */
-        .timeline-container {
-            position: relative;
-            max-width: 1100px;
-            margin: 40px auto 0 auto;
-            padding: 20px 0;
-        }
-        /* Główna linia środkowa */
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, #276749, #dd6b20);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 10px;
-        }
-        .timeline-block {
-            position: relative;
-            width: 50%;
-            padding: 20px 40px;
-            box-sizing: border-box;
-        }
-        /* Parzyste po lewej, nieparzyste po prawej */
-        .timeline-block-left {
-            left: 0;
-            text-align: right;
-        }
-        .timeline-block-right {
-            left: 50%;
-            text-align: left;
-        }
-        /* Kropki na linii */
-        .timeline-dot {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            right: -12px;
-            background-color: #ffffff;
-            border: 4px solid #276749;
-            border-radius: 50%;
-            top: 35px;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-        .timeline-block-right .timeline-dot {
-            left: -12px;
-            border-color: #dd6b20;
-        }
-        /* Zawartość kroku */
-        .timeline-content {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            border: 1px solid #edf2f7;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-            border-color: #276749;
-        }
-        .timeline-block-right .timeline-content:hover {
-            border-color: #dd6b20;
-        }
-        .step-icon {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        .timeline-content h3 {
-            font-size: 1.4rem;
-            color: #276749;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .timeline-block-right .timeline-content h3 {
-            color: #dd6b20;
-        }
-        .timeline-content p {
-            color: #4a5568;
-            font-size: 1rem;
-        }
-
-        /* ONS WERK */
+        /* DYNAMICZNA SEKCJA ONS WERK (WZMOCNIONA) */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
         }
         .gallery-item {
-            background: #fff;
-            border-radius: 16px;
+            background: #ffffff;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             border: 1px solid #edf2f7;
+            transition: all 0.35s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(39, 103, 73, 0.12);
+            border-color: #276749;
         }
         .gallery-img {
-            height: 320px;
+            height: 380px;
             background-size: cover;
             background-position: center;
+            transition: transform 0.5s ease;
         }
         .gallery-info {
-            padding: 20px;
+            padding: 25px;
+            background: #ffffff;
+            border-top: 4px solid #dd6b20;
         }
         .gallery-info h3 {
             color: #276749;
-            margin-bottom: 8px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .gallery-info p {
+            color: #4a5568;
+            font-size: 1.05rem;
         }
 
         /* CONTACT */
@@ -402,28 +329,13 @@
             font-size: 0.95rem;
         }
 
-        /* RESPONSYWNOŚĆ DLA OSI CZASU ORAZ MENU */
+        /* RESPONSYWNOŚĆ */
         @media (max-width: 850px) {
             body { padding-top: 130px; }
             .nav-container { flex-direction: column; gap: 15px; text-align: center; }
+            .gallery-grid { grid-template-columns: 1fr; }
             .contact-box { grid-template-columns: 1fr; padding: 20px; }
             header h1 { font-size: 2.2rem; }
-            
-            /* Przestawienie osi czasu w jedną kolumnę na telefonach */
-            .timeline-container::after {
-                left: 31px;
-            }
-            .timeline-block {
-                width: 100%;
-                left: 0;
-                padding-left: 70px;
-                padding-right: 20px;
-                text-align: left;
-            }
-            .timeline-dot {
-                left: 20px !important;
-                right: auto !important;
-            }
         }
     </style>
 </head>
@@ -435,7 +347,6 @@
             <ul class="nav-links">
                 <li><a href="#over-ons">Over Ons</a></li>
                 <li><a href="#diensten">Diensten</a></li>
-                <li><a href="#werkwijze">Werkwijze</a></li>
                 <li><a href="#ons-werk">Ons Werk</a></li>
                 <li><a href="#contact" class="nav-btn">Offerte Aanvragen</a></li>
             </ul>
@@ -497,69 +408,27 @@
             </div>
         </section>
 
-        <section id="werkwijze">
-            <h2>Onze Werkwijze</h2>
-            <p class="section-subtitle">Duidelijkheid en structuur van begin tot eind</p>
-            
-            <div class="timeline-container">
-                
-                <div class="timeline-block timeline-block-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="step-icon">📞</span>
-                        <h3>1. Eerste Aanvraag</h3>
-                        <p>U neemt contact met ons op via het formulier of telefoon. We bespreken direct uw wensen en plannen een vrijblijvende afspraak in.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-block timeline-block-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="step-icon">📄</span>
-                        <h3>2. Duidelijke Offerte</h3>
-                        <p>Na de inspectie ontvangt u een heldere, gedetailleerde en volledig vrijblijvende prijsopgave. Zo weet u precies waar u aan toe bent.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-block timeline-block-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="step-icon">🎨</span>
-                        <h3>3. Vakkundige Uitvoering</h3>
-                        <p>Onze schilders gaan professioneel, netjes en nauwkeurig te werk. Wij gebruiken uitsluitend topkwaliteit materialen voor een duurzaam resultaat.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-block timeline-block-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="step-icon">🤝</span>
-                        <h3>4. Perfecte Oplevering</h3>
-                        <p>We lopen samen het werk na voor de eindcontrole. Pas als u 100% tevreden bent met het schilderwerk, ronden wij het project af.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <section id="ons-werk">
             <h2>Ons Recente Werk</h2>
-            <p class="section-subtitle">Een greep uit onze gerealiseerde projecten</p>
+            <p class="section-subtitle">Trots op ons vakmanschap – Bekijk onze laatste realisaties</p>
             <div class="gallery-grid">
+                
                 <div class="gallery-item">
                     <div class="gallery-img" style="background-image: url('image_bb4878.jpg')"></div>
                     <div class="gallery-info">
-                        <h3>Buitenschilderwerk</h3>
-                        <p>Volledig onderhoud, reiniging en professioneel lakwerk van kozijnen, deuren en gevelelementen.</p>
+                        <h3>Buitenschilderwerk Project</h3>
+                        <p>Volledige gevelrenovatie, grondige reiniging en hoogwaardig aflakwerk van kozijnen en deuren in Berkel en Rodenrijs. Optimaal beschermd tegen weer en wind.</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
                     <div class="gallery-img" style="background-image: url('image_bb4572.jpg')"></div>
                     <div class="gallery-info">
-                        <h3>Binnenschilderwerk</h3>
-                        <p>Strakke wandafwerking, sauswerk van plafonds en nauwkeurig schilderwerk binnenshuis.</p>
+                        <h3>Binnenschilderwerk Project</h3>
+                        <p>Strakke, egale wandafwerking, sauswerk van plafonds en verfijnd schilderwerk van de binnendeuren en trappen voor een modern en fris interieur.</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
