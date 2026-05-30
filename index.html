@@ -3,34 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schildersbedrijf Berkel en Rodenrijs | Vakmanschap & Kwaliteit</title>
+    <title>Klussenbedrijf Tomma | Vakmanschap & Kwaliteit Berkel en Rodenrijs</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         /* Zmienne CSS z bogatszą paletą dla efektów głębi */
         :root {
             --bg-color: #f7fafc;
             --text-color: #2d3748;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --card-border: rgba(237, 242, 247, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(226, 232, 240, 0.8);
             --sub-text: #4a5568;
-            --nav-bg: rgba(255, 255, 255, 0.8);
+            --nav-bg: rgba(255, 255, 255, 0.85);
             --body-bg: #f7fafc;
             --accent-green: #276749;
             --accent-orange: #dd6b20;
             --shadow-color: rgba(0, 0, 0, 0.05);
+            --input-bg: #ffffff;
         }
 
         [data-theme="dark"] {
             --bg-color: #121620;
             --text-color: #e2e8f0;
-            --card-bg: rgba(45, 55, 72, 0.8);
+            --card-bg: rgba(45, 55, 72, 0.95);
             --card-border: rgba(74, 85, 104, 0.5);
             --sub-text: #a0aec0;
-            --nav-bg: rgba(18, 22, 32, 0.8);
+            --nav-bg: rgba(18, 22, 32, 0.85);
             --body-bg: #121620;
             --accent-green: #48bb78;
             --accent-orange: #ed8936;
             --shadow-color: rgba(0, 0, 0, 0.3);
+            --input-bg: #1a202c;
         }
 
         /* Reset i Płynne Przejścia */
@@ -53,7 +55,7 @@
             position: relative;
         }
 
-        /* DYNAMICZNE ELEMENTY W TLE STRONY (ANIMOWANE SFERY) */
+        /* DYNAMICZNE ELEMENTY W TLE STRONY */
         body::before, body::after {
             content: "";
             position: absolute;
@@ -93,7 +95,7 @@
             padding: 15px 20px;
         }
         .logo {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: var(--accent-green);
             text-decoration: none;
@@ -168,18 +170,18 @@
         }
         .theme-toggle:hover { transform: rotate(20deg) scale(1.15); }
 
-        /* HERO - ZAAWANSOWANE TRÓJWYMIAROWE WEJŚCIE */
+        /* HERO */
         header {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(18, 22, 32, 0.7) 100%), 
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(18, 22, 32, 0.75) 100%), 
                         url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             color: #ffffff;
-            padding: 200px 20px;
+            padding: 220px 20px;
             text-align: center;
             position: relative;
             clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
         }
         header h1 {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             font-weight: 900;
             margin-bottom: 20px;
             letter-spacing: -1.5px;
@@ -219,12 +221,10 @@
             0% { box-shadow: 0 6px 20px rgba(221, 107, 32, 0.4); }
             100% { box-shadow: 0 6px 30px rgba(221, 107, 32, 0.7); }
         }
-        .btn-main:hover {
-            transform: translateY(-4px) scale(1.05);
-        }
+        .btn-main:hover { transform: translateY(-4px) scale(1.05); }
 
         /* GŁÓWNY KONTENER SEKCJI */
-        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
         section { scroll-margin-top: 100px; margin-bottom: 120px; }
         section h2 {
             text-align: center;
@@ -242,7 +242,7 @@
             font-weight: 500;
         }
 
-        /* OVER ONS EFEKT KARTY PREMIUM */
+        /* OVER ONS */
         .about-card {
             background: var(--card-bg);
             backdrop-filter: blur(8px);
@@ -270,7 +270,7 @@
         }
         .stat-item h4 { font-size: 2.8rem; color: var(--accent-green); font-weight: 900; margin-bottom: 5px; }
 
-        /* DIENSTEN - ULTRA MODERN HOVER I ELEGANCKI BLASK */
+        /* DIENSTEN */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .service-card {
             background: var(--card-bg);
@@ -296,16 +296,8 @@
         }
         .service-card h3 { margin-bottom: 15px; color: var(--accent-green); font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
         .service-card p { font-size: 1.05rem; color: var(--sub-text); }
-        
-        .warranty-tag {
-            display: inline-block;
-            background: #feebc8; color: #c05621; font-size: 0.8rem; font-weight: 800;
-            padding: 6px 14px; border-radius: 8px; margin-top: 15px;
-            animation: softPulse 2s infinite alternate;
-        }
-        [data-theme="dark"] .warranty-tag { background: #7b341e; color: #fbd38d; }
 
-        /* WERKWIJZE - EMISYJNY GRADIENT PRZEPŁYWOWY */
+        /* WERKWIJZE */
         .process-box {
             background: linear-gradient(135deg, #1c4d35, #276749, #2c7a7b, #1c4d35);
             background-size: 300% 300%;
@@ -333,11 +325,7 @@
         }
         .step h4 { color: #ffffff; font-size: 1.25rem; margin-bottom: 8px; font-weight: 700; }
         .step p { color: #e2e8f0; font-size: 1rem; opacity: 0.9; }
-        .step-num {
-            font-size: 2.2rem; font-weight: 900; color: #feebc8;
-            margin-bottom: 15px; display: inline-block;
-        }
-        .step:hover .step-num { transform: scale(1.2) rotate(10deg); color: #fff; }
+        .step-num { font-size: 2.2rem; font-weight: 900; color: #feebc8; margin-bottom: 15px; display: inline-block; }
 
         /* ONS WERK */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px; }
@@ -369,7 +357,7 @@
         .gallery-static-info { padding: 20px; }
         .gallery-static-info h3 { color: var(--accent-green); font-size: 1.3rem; margin-bottom: 5px; font-weight: 800; }
 
-        /* SEKCJA ZACHĘTY DO OPINII GOOGLE MAPS */
+        /* REVIEWS */
         .google-reviews-box {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -380,55 +368,19 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        .google-reviews-box h3 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
-        .google-stars {
-            color: #ffc107;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        .google-reviews-box p {
-            font-size: 1.1rem;
-            color: var(--sub-text);
-            margin-bottom: 30px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .google-reviews-box h3 { font-size: 1.8rem; font-weight: 900; margin-bottom: 15px; color: var(--text-color); }
+        .google-stars { color: #ffc107; font-size: 2.2rem; margin-bottom: 15px; letter-spacing: 2px; }
+        .google-reviews-box p { font-size: 1.1rem; color: var(--sub-text); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        
         .btn-google-review {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #ffffff;
-            color: #1f2937;
-            border: 2px solid #e5e7eb;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            text-decoration: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            background: #ffffff; color: #1f2937; border: 2px solid #e5e7eb; padding: 16px 32px;
+            border-radius: 50px; font-size: 1.05rem; font-weight: 700; text-decoration: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        [data-theme="dark"] .btn-google-review {
-            background: #2d3748;
-            color: #ffffff;
-            border-color: #4a5568;
-        }
-        .btn-google-review:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-            border-color: var(--accent-orange);
-        }
-        .google-btn-icon {
-            width: 24px;
-            height: 24px;
-        }
+        [data-theme="dark"] .btn-google-review { background: #2d3748; color: #ffffff; border-color: #4a5568; }
+        .btn-google-review:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px rgba(0,0,0,0.12); border-color: var(--accent-orange); }
+        .google-btn-icon { width: 24px; height: 24px; }
 
         /* LIGHTBOX */
         .lightbox {
@@ -441,48 +393,103 @@
         .lightbox.active .lightbox-img { transform: scale(1); }
         .lightbox-close { position: absolute; top: 25px; right: 35px; color: #fff; font-size: 3.5rem; font-weight: 300; cursor: pointer; }
 
-        /* SKOŚNY FORMULARZ I SIDEBAR INTERAKTYWNY */
+        /* --- NOWA, ULEPSZONA, TRADYCYJNA SEKCJA OFERTOWA PREMIUM --- */
         .contact-box {
-            background: var(--card-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border-radius: 32px; padding: 50px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px;
-            box-shadow: 0 30px 60px var(--shadow-color); border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 45px;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 40px;
+            box-shadow: 0 25px 55px var(--shadow-color);
+            border: 1px solid var(--card-border);
         }
+        
         .contact-sidebar {
-            background: linear-gradient(135deg, #1c4d35 0%, #276749 100%);
-            color: white; padding: 45px 35px; border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(28, 77, 53, 0.3);
+            background: linear-gradient(135deg, #19442e 0%, #276749 100%);
+            color: white;
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(28, 77, 53, 0.25);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .contact-sidebar h3 { font-size: 1.9rem; margin-bottom: 25px; color: #feebc8; font-weight: 900; }
+        .contact-sidebar h3 { font-size: 1.8rem; margin-bottom: 20px; color: #feebc8; font-weight: 900; letter-spacing: -0.5px; }
+        .contact-sidebar p { font-size: 1.05rem; opacity: 0.95; line-height: 1.6; }
         .info-link { color: #fff; text-decoration: none; font-weight: 700; display: inline-block; }
-        .info-link:hover { color: #feebc8; transform: translateX(5px); }
-         
+        .info-link:hover { color: #feebc8; transform: translateX(4px); }
+        
+        .sidebar-bottom-badges {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 20px;
+        }
+        .sidebar-badge { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; }
+
+        /* Pasek Zaufania nad Formularzem */
+        .form-trust-bar {
+            display: flex;
+            justify-content: space-around;
+            background: var(--bg-color);
+            border: 1px solid var(--card-border);
+            padding: 12px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        .form-trust-bar span { display: flex; align-items: center; gap: 6px; }
+
+        /* Siatka Czystego Formularza */
         .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        
         .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-group label { font-size: 0.95rem; font-weight: 700; color: var(--text-color); }
+        .form-group label { font-size: 0.92rem; font-weight: 700; color: var(--text-color); }
         
         .form-group input, .form-group textarea, .form-group select {
-            padding: 14px; border: 2px solid var(--card-border); border-radius: 12px;
-            font-size: 1rem; background-color: var(--bg-color); color: var(--text-color);
-            width: 100%; font-family: inherit;
+            padding: 14px 16px;
+            border: 2px solid var(--card-border);
+            border-radius: 12px;
+            font-size: 1rem;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            width: 100%;
+            font-family: inherit;
         }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none; border-color: var(--accent-green);
-            box-shadow: 0 0 0 4px rgba(39, 103, 73, 0.15);
-            background-color: var(--bg-color);
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(39, 103, 73, 0.12);
         }
-        .btn-submit {
+
+        .btn-submit-premium {
             background: linear-gradient(90deg, #dd6b20 0%, #c05621 100%);
-            color: white; border: none; padding: 16px; border-radius: 12px;
-            font-size: 1.05rem; font-weight: 700; cursor: pointer; margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(221, 107, 32, 0.3);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 18px rgba(221, 107, 32, 0.35);
         }
-        .btn-submit:hover { 
-            background: linear-gradient(90deg, #c05621 0%, #a04413 100%); 
-            transform: translateY(-3px);
+        .btn-submit-premium:hover {
+            transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(221, 107, 32, 0.5);
         }
 
-        /* DYNAMICZNY PRZYCISK Z PULSUJĄCYMI FALAMI */
+        /* FLOATING CALL BUTTON */
         .floating-call-btn {
             position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
             background: linear-gradient(135deg, #dd6b20 0%, #b84e14 100%);
@@ -523,19 +530,12 @@
             text-decoration: none; font-size: 1.2rem; width: 100%;
             box-shadow: 0 5px 15px rgba(221, 107, 32, 0.3);
         }
-        .modal-call-btn:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(221, 107, 32, 0.5); }
         .modal-close { position: absolute; top: 15px; right: 22px; font-size: 1.8rem; cursor: pointer; color: var(--sub-text); }
 
         /* FOOTER */
         footer { text-align: center; padding: 40px 20px; background-color: #0e271b; color: #a0aec0; font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
-        /* ANIME KEYFRAMES */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* RESPONSIVE WEB DESIGN (RWD MOBILE & TABLET) */
+        /* RESPONSIVE WEB DESIGN (RWD) */
         @media (max-width: 950px) {
             body { padding-top: 65px; }
             .menu-toggle { display: flex; }
@@ -556,7 +556,9 @@
             .nav-btn { border-radius: 0; background: var(--accent-orange); padding: 18px 20px; box-shadow: none; }
             .theme-toggle { padding: 16px; width: 100%; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.03); }
 
-            .contact-box { grid-template-columns: 1fr; padding: 25px 20px; gap: 30px; }
+            .contact-box { grid-template-columns: 1fr; padding: 30px 20px; gap: 35px; }
+            .form-grid-2 { grid-template-columns: 1fr; gap: 15px; }
+            .form-trust-bar { flex-direction: column; gap: 8px; text-align: center; }
             header { padding: 140px 20px 100px 20px; }
             header h1 { font-size: 2.3rem; }
             header p { font-size: 1.2rem; }
@@ -575,7 +577,7 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Schildersbedrijf <span>Berkel en Rodenrijs</span></a>
+            <a href="#" class="logo">Klussenbedrijf <span>Tomma</span></a>
             
             <button class="menu-toggle" id="menuToggleBtn" aria-label="Menu openen">
                 <span></span><span></span><span></span>
@@ -594,8 +596,8 @@
     </nav>
 
     <header>
-        <h1>Uw lokale schildersbedrijf uit Berkel en Rodenrijs</h1>
-        <p>Vakmanschap met 25 jaar ervaring</p>
+        <h1>Uw lokale partner voor professioneel schilder- en kluswerk</h1>
+        <p>Vakmanschap met 25 jaar ervaring in Berkel en Rodenrijs</p>
         <a href="#contact" class="btn-main">Vrijblijvende Offerte</a>
     </header>
 
@@ -606,7 +608,7 @@
             <p class="section-subtitle">Betrouwbaarheid en pure kwaliteit in Berkel en Rodenrijs</p>
             <div class="about-card">
                 <p>
-                    Wij zijn een ervaren en betrouwbaar schildersbedrijf gevestigd in Berkel en Rodenrijs. Met ruim 25 jaar ervaring verzorgen wij hoogwaardig schilder- en onderhoudswerk voor villa’s, eengezinswoningen, VvE’s en monumentale panden.
+                    Wij zijn een ervaren en betrouwbaar schilders- en klussenbedrijf gevestigd in Berkel en Rodenrijs. Met ruim 25 jaar ervaring verzorgen wij hoogwaardig schilder-, onderhouds- en renovatiewerk voor villa’s, eengezinswoningen, VvE’s en bedrijfspanden.
                 </p>
                 <div class="stats-grid">
                     <div class="stat-item"><h4><span class="counter" data-target="25">0</span>+</h4><p>Jaar Ervaring</p></div>
@@ -622,8 +624,7 @@
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="50">
                     <h3>🏡 Buitenschilderwerk</h3>
-                    <p>Duurzame bescherming van uw gevels, ramen en kozijnen tegen alle Nederlandse weersinvloeden.</p>
-                    <span class="warranty-tag">Tot 10 jaar garantie mogelijk</span>
+                    <p>Duurzame bescherming van uw gevels, ramen i kozijnen tegen alle Nederlandse weersinvloeden.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>🎨 Binnenschilderwerk</h3>
@@ -654,7 +655,7 @@
                 <div class="steps-grid">
                     <div class="step"><div class="step-num">1</div><h4>Aanvraag</h4><p>U neemt contact op en we bespreken uw wensen.</p></div>
                     <div class="step"><div class="step-num">2</div><h4>Offerte</h4><p>U ontvangt een heldere, vrijblijvende prijsopgave.</p></div>
-                    <div class="step"><div class="step-num">3</div><h4>Uitvoering</h4><p>Wij werken netjes, vakkundig en strak op planning.</p></div>
+                    <div class="step"><div class="step-num">3</div><h4>Uitvoering</h4><p>Wij werken netjes, vakkundig and strak op planning.</p></div>
                     <div class="step"><div class="step-num">4</div><h4>Oplevering</h4><p>Gezamenlijke controle voor een 100% topresultaat.</p></div>
                 </div>
             </div>
@@ -681,7 +682,7 @@
 
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80')">
                     <div class="gallery-img-container">
-                        <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="gallery-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=crop&w=800&q=80')"></div>
                         <div class="gallery-overlay">
                             <h3>Binnenschilderwerk</h3>
                             <p>Strakke wandafwerking, sauswerk van plafonds and nauwkeurig schilderwerk binnenshuis.</p>
@@ -717,45 +718,86 @@
         </div>
 
         <section id="contact" data-aos="fade-up">
-            <h2>Contact & Offerte</h2>
-            <p class="section-subtitle">Vraag direct een vrijblijvende prijsopgave aan</p>
+            <h2>Offerte Aanvragen</h2>
+            <p class="section-subtitle">Deel uw plannen en ontvang snel een vrijblijvende prijsopgave</p>
             <div class="contact-box">
+                
                 <div class="contact-sidebar">
-                    <h3>Contactgegevens</h3>
-                    <p style="margin-bottom: 25px;">Heeft u vragen of wilt u een afspraak maken? Neem direct contact op. Wij staan voor u klaar.</p>
-                    <p><strong>📞 Telefoon:</strong><br><a href="tel:+31654967900" class="info-link">+31 654 967 900</a></p><br>
-                    <p><strong>✉️ E-mail:</strong><br><a href="mailto:tomma.info@gmail.com" class="info-link">tomma.info@gmail.com</a></p><br>
-                    <p><strong>📍 Adres:</strong><br>Verveenstraat 19,<br>2651EX Berkel en Rodenrijs</p>
+                    <div>
+                        <h3>Contactgegevens</h3>
+                        <p style="margin-bottom: 25px;">Heeft u liever direct persoonlijk contact? Bel of mail ons gerust. Wij reageren altijd snel.</p>
+                        <p style="margin-bottom: 12px;"><strong>📞 Telefoon:</strong><br><a href="tel:+31654967900" class="info-link">+31 654 967 900</a></p>
+                        <p style="margin-bottom: 12px;"><strong>✉️ E-mail:</strong><br><a href="mailto:tomma.info@gmail.com" class="info-link">tomma.info@gmail.com</a></p>
+                        <p><strong>📍 Adres:</strong><br>Verveenstraat 19, 2651EX Berkel en Rodenrijs</p>
+                    </div>
+                    <div class="sidebar-bottom-badges">
+                        <div class="sidebar-badge">🛡️ Volledig WA-verzekerd</div>
+                        <div class="sidebar-badge">⏱️ Reactie binnen 48 uur</div>
+                        <div class="sidebar-badge">💎 100% Tevredenheidsgarantie</div>
+                    </div>
                 </div>
                  
-                <form class="contact-form" action="https://formspree.io/f/xojbbwzb" method="POST">
-                    <div class="form-group">
-                        <label>Uw Naam *</label>
-                        <input type="text" name="name" required placeholder="Jan Jansen">
+                <div>
+                    <div class="form-trust-bar">
+                        <span>✨ 100% Gratis & Vrijblijvend</span>
+                        <span>📋 Duidelijke prijsindicatie</span>
                     </div>
-                    <div class="form-group">
-                        <label>E-mailadres *</label>
-                        <input type="email" name="email" required placeholder="jan@example.nl">
-                    </div>
-                    <div class="form-group">
-                        <label>Telefoonnummer *</label>
-                        <input type="tel" name="phone" required placeholder="06 12345678">
-                    </div>
-                    <div class="form-group">
-                        <label>Type Werkzaamheid *</label>
-                        <select name="service">
-                            <option value="Buitenschilderwerk">Buitenschilderwerk</option>
-                            <option value="Binnenschilderwerk">Binnenschilderwerk</option>
-                            <option value="Behang en Stucwerk">Behang- & Stucwerk</option>
-                            <option value="Houtreparatie">Houtreparatie / Onderhoud</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Uw Bericht *</label>
-                        <textarea name="message" rows="4" required placeholder="Beschrijf uw project..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Aanvraag Verzenden</button>
-                </form>
+
+                    <form class="contact-form" action="https://formspree.io/f/xojbbwzb" method="POST">
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Uw Naam *</label>
+                                <input type="text" name="name" required placeholder="Jan Jansen">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefoonnummer *</label>
+                                <input type="tel" name="phone" required placeholder="06 12345678">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>E-mailadres *</label>
+                                <input type="email" name="email" required placeholder="jan@example.nl">
+                            </div>
+                            <div class="form-group">
+                                <label>Postcode & Plaats *</label>
+                                <input type="text" name="location" required placeholder="2651 EX, Berkel">
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Type Werkzaamheid *</label>
+                                <select name="service">
+                                    <option value="Buitenschilderwerk">Buitenschilderwerk</option>
+                                    <option value="Binnenschilderwerk">Binnenschilderwerk</option>
+                                    <option value="Behang en Stucwerk">Behang- & Stucwerk</option>
+                                    <option value="Houtreparatie">Houtreparatie / Onderhoud</option>
+                                    <option value="Andere Klus">Andere kluswerkzaamheden</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Gewenste startdatum</label>
+                                <select name="start_time">
+                                    <option value="Zo snel mogelijk">Zo snel mogelijk</option>
+                                    <option value="Binnen 1 tot 3 maanden">Binnen 1 tot 3 maanden</option>
+                                    <option value="In overleg / Flexibel">In overleg / Flexibel</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Beschrijf uw project *</label>
+                            <textarea name="message" rows="5" required placeholder="Vertel ons meer over uw wensen, afmetingen of specifieke details van de klus..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-premium">
+                            <span>Verzend Aanvraag</span> 🚀
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </section>
 
@@ -767,13 +809,13 @@
         <div class="quick-modal">
             <span class="modal-close" onclick="closeModal(event, true)">&times;</span>
             <h3>Snel een offerte?</h3>
-            <p>Wilt u direct een schilder spreken en uw wensen bespreken? Bel ons nu op voor een snelle prijsindicatie!</p>
+            <p>Wilt u direct een vakman spreken en uw wensen bespreken? Bel ons nu op voor een snelle prijsindicatie!</p>
             <a href="tel:+31654967900" class="modal-call-btn">📞 Bel +31 654 967 900</a>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Schildersbedrijf Berkel en Rodenrijs. Alle rechten voorbehouden.</p>
+        <p>© 2026 Klussenbedrijf Tomma. Alle rechten voorbehouden.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
